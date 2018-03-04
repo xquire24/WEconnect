@@ -1,0 +1,130 @@
+.info .col
+{
+	margin-bottom: 24px;
+}
+
+.info h5
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.info h6
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 45px;
+}
+
+.info hr
+{
+	width: 40px;
+	margin-bottom: 45px;
+}
+
+.info .info-text
+{
+	padding-left: 40px;
+	padding-top: 70px;
+	text-align: center;
+	font-size: large;
+}
+
+.info .info-text p
+{
+	margin-bottom: 30px;
+}
+
+.info .info-image img
+{
+	display: block;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro
+{
+	text-align: center;
+	padding-top: 10%;
+	padding-bottom: 10%;
+	margin-bottom: 40px;
+}
+.intro h1
+{
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.intro h5
+{
+	text-transform: uppercase;
+	background-color: #f5f5f5;
+	padding: 10px;
+	color: #333333;
+	display: inline-block;
+	font-size: 1.2rem;
+}
+
+.portfolio .col
+{
+	margin-bottom: 24px;
+}
+
+.portfolio h5
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.portfolio h6
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 45px;
+}
+
+.portfolio hr
+{
+	width: 40px;
+	margin-bottom: 45px;
+}
+
+.portfolio .portfolio-holder
+{
+	clear: both;
+	text-align: center;
+}
+
+.portfolio img
+{
+	width: 33%;
+	display: inline-block;
+	float: left;
+}
+
+.article h5
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+
+.article h6
+{
+	text-align: left;
+	font-size: large;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+footer
+{
+	background-color: #333333;
+	padding-top: 40px;
+	color: #f5f5f5;
+	
+}

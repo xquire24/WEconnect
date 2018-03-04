@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEconnect Business Application</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+       <!-- jQuery is required by Materialize to function -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript">
+  </script>
+
+  <header>
+        <nav class="blue darken-1 z-depth-1">
+                <div class="nav-wrapper">
+                  <a href="#!" class="brand-logo">WEconnect</a>
+                  <ul class="right hide-on-med-and-down">
+                   <li><a href="index.html">Home</a></li>
+                    <li><a href="businesses.html">Businesses</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="update.html">Update</a></li>
+                    <li><a href="login.html">Login</a></li>
+                  </ul>
+                </div>
+              </nav>
+              <div class="parallax-container">
+                    <div class="parallax"><img src="images/business.jpg"></div>
+                  </div> 
+  </header>
+
+  <main>
+        <div class="container info">
+                <h5>Update</h5>
+                <h6>Update your business details in the form provided</h6>
+                <hr>
+                <div class="row">
+                  
+                    <div class="row">
+                        <div class="col s12 m6 l6 info-text">
+                            <p>We help connect you to your potential customers. Helping you reach out to a larger client base</p>
+                          </div>
+                          <div class="col s12 m6 l6">
+                      <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="business_name" type="text" class="validate">
+                            <label for="business_name">Update Business Name</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="motto" type="text" class="validate">
+                            <label for="motto">Update Business motto or slogan</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Update Business E-Mail</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input id="telephone" type="tel" class="validate">
+                              <label for="telephone">Update Phone Number</label>
+                            </div>
+                          </div>
+                          <textarea class="materialize-textarea" placeholder="Update Contact Address" required></textarea>
+                          <textarea class="materialize-textarea" placeholder="Update Description of Business and services" required></textarea>
+                          <div class="file-field input-field">
+                              <div class="btn  blue darken-1">
+                                <span>Upload</span>
+                                <input type="file">
+                              </div>
+                              <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Update your business logo">
+                              </div>
+                            </div>
+                            <div class="file-field input-field">
+                                <div class="btn  blue darken-1">
+                                  <span>Upload</span>
+                                  <input type="file" multiple>
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate" type="text" placeholder="Add more photos of your products or services">
+                                </div>
+                              </div>
+                        <button class="btn waves-effect waves-light btn blue darken-1" type="submit" name="action">Update
+                          <i class="mdi-content-send right"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+  </main>
+  <footer>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2018 Powered By WEconnect
+          </div>
+        </div>
+      </footer>   
+    
+</body>
+</html>
