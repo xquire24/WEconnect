@@ -4,7 +4,7 @@ import chaiHttp from 'chai-http';
 import app from '../../app';
 
 const Business = {
-  name: 'andelana',
+  name: 'Andel',
   description: 'a software development company changing the face of africa',
   category: 'ICT',
   location: 'lagos',
@@ -48,6 +48,24 @@ describe('POST businesses/', () => {
       .end((err, res) => {
         expect(res)
           .to.have.status(201);
+        expect(res.body)
+          .to.be.a('object');
+        done();
+      });
+  });
+
+  it('should return 400 if no business name', (done) => {
+    chai.request(app)
+      .post('/api/v1/businesses')
+      .send({
+        description: 'Best Ict Resources',
+        location: 'lagos',
+        category: 'ICT',
+        email: 'xquireworld@gmail.com',
+      })
+      .end((err, res) => {
+        expect(res)
+          .to.have.status(400);
         expect(res.body)
           .to.be.a('object');
         done();
