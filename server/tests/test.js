@@ -3,6 +3,14 @@ import chaiHttp from 'chai-http';
 
 import app from '../../app';
 
+const Business = {
+  name: 'andelana',
+  description: 'a software development company changing the face of africa',
+  category: 'ICT',
+  location: 'lagos',
+  email: 'andelare@andela.com',
+};
+
 chai.use(chaiHttp);
 const { expect } = chai;
 // test for app API
@@ -26,6 +34,22 @@ describe('apiApp testing', () => {
         expect(res.body).to.have.property('message');
         expect(res.status).to.equal(200);
         expect(res.body).to.be.a('object');
+        done();
+      });
+  });
+});
+
+// test for register business route and middle ware
+describe('POST businesses/', () => {
+  it('should be able to register a business', (done) => {
+    chai.request(app)
+      .post('/api/v1/businesses')
+      .send(Business)
+      .end((err, res) => {
+        expect(res)
+          .to.have.status(201);
+        expect(res.body)
+          .to.be.a('object');
         done();
       });
   });
