@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon --exec babel-node ./server/bin/www",
-    "test": "mocha server/tests/test --compilers js:babel-register"
+    "test": "mocha server/tests/ --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
