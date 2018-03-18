@@ -13,7 +13,7 @@ const Business = {
 
 chai.use(chaiHttp);
 const { expect } = chai;
-// test for register business route and middle ware
+// test for register business route
 describe('POST businesses/', () => {
   it('should be able to register a business', (done) => {
     chai.request(app)
@@ -36,6 +36,24 @@ describe('POST businesses/', () => {
         location: 'lagos',
         category: 'ICT',
         email: 'xquireworld@gmail.com',
+      })
+      .end((err, res) => {
+        expect(res)
+          .to.have.status(400);
+        expect(res.body)
+          .to.be.a('object');
+        done();
+      });
+  });
+
+  it('should return 400 if no email', (done) => {
+    chai.request(app)
+      .post('/api/v1/businesses')
+      .send({
+        name: 'tradby',
+        description: 'Best Ict Resources',
+        location: 'lagos',
+        category: 'ICT',
       })
       .end((err, res) => {
         expect(res)
