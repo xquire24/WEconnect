@@ -15,8 +15,9 @@ class Business {
       description: req.body.description,
       category: req.body.category,
       location: req.body.location,
+      email: req.body.email,
     });
-    return res.json({
+    return res.status(201).json({
       message: 'Registered Successfully',
       error: false
     });
