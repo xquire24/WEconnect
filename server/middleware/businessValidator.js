@@ -21,12 +21,12 @@ class ValidateBusiness {
    * @param {*} next
    */
   static registerBusinessValidator(req, res, next) {
-    req.check('business_name', 'Business name is required').notEmpty();
+    req.check('name', 'Business name is required').notEmpty();
+    req.check('description', 'Description is required').notEmpty();
     req.check('category', 'Category is required').notEmpty();
+    req.check('location', 'Location is required').notEmpty();
     req.check('email', 'Email is required').notEmpty();
     req.check('email', 'Email is not valid').isEmail();
-    req.check('location', 'Location is required').notEmpty();
-    req.check('description', 'Description is required').notEmpty();
     const errors = req.validationErrors();
     if (errors) { return errorMessage(res, errors[0].msg); }
 
