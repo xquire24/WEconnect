@@ -138,3 +138,27 @@ describe('POST business reviews/', () => {
       });
   });
 });
+describe('GET business reviews/', () => {
+  it('it should GET all reviews for a business', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses/1/reviews')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('it should not GET reviews for a business that does not exist', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses/6/reviews')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
+});
