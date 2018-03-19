@@ -35,7 +35,7 @@ class Business {
         businesses[i].location = req.body.location;
         businesses[i].category = req.body.category;
         businesses[i].email = req.body.email;
-        return res.json({
+        return res.status(202).json({
           message: 'Updated Successfully',
           error: false
         });
