@@ -88,5 +88,23 @@ class Business {
       error: true
     });
   }
+  /**
+   * @returns {Object} getBusinessReview
+   * @param {*} req
+   * @param {*} res
+   */
+  static getBusinessReview(req, res) {
+    for (let i = 0; i < businesses.length; i += 1) {
+      if (businesses[i].id === parseInt(req.params.businessId, 10)) {
+        return res.status(200).json({
+          Reviews: businesses[i].reviews
+        });
+      }
+    }
+    return res.status(404).json({
+      message: 'No review found',
+      error: true
+    });
+  }
 }
 export default Business;
