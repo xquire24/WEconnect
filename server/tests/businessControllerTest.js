@@ -85,3 +85,24 @@ describe('PUT businesses/', () => {
       });
   });
 });
+// test for Delete Business route
+describe('DELETE businesses/', () => {
+  it('should be able to delete a business', (done) => {
+    chai.request(app)
+      .delete('/api/v1/businesses/2')
+      .end((err, res) => {
+        expect(res)
+          .to.have.status(200);
+        done();
+      });
+  });
+  it('should return 404 if page cannot be found', (done) => {
+    chai.request(app)
+      .delete('/api/v1/businesses/6')
+      .end((err, res) => {
+        expect(res)
+          .to.have.status(404);
+        done();
+      });
+  });
+});
