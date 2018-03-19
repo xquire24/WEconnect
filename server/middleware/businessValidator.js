@@ -5,11 +5,6 @@ const errorMessage = (res, message) => res.status(400).json({
   error: true
 });
 
-const successMessage = (res, message) => res.status(200).json({
-  message,
-  error: false
-});
-
 /**
  * @class ValidateBusiness
  */
@@ -51,6 +46,20 @@ class ValidateBusiness {
         if (errors) { return errorMessage(res, errors[0].msg); }
       }
     }
+    next();
+  }
+  /**
+   * @returns {Object} query
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
+   */
+  static businessReviewValidator(req, res, next) {
+    req.check('name', 'Name is required').notEmpty();
+    req.check('review', 'Review is required').notEmpty();
+    const errors = req.validationErrors();
+    if (errors) { return errorMessage(res, errors[0].msg); }
+
     next();
   }
 }
