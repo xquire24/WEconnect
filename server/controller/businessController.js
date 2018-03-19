@@ -55,8 +55,30 @@ class Business {
     for (let i = 0; i < businesses.length; i += 1) {
       if (businesses[i].id === parseInt(req.params.businessId, 10)) {
         businesses.splice(businesses[i], 1);
-        return res.json({
+        return res.status(200).json({
           message: 'Successfully Deleted',
+          error: false
+        });
+      }
+    }
+    return res.status(404).json({
+      message: 'Business not found',
+      error: true
+    });
+  }
+  /**
+   * @returns {Object} addBusinessReview
+   * @param {*} req
+   * @param {*} res
+   */
+  static addBusinessReview(req, res) {
+    const { name, review } = req.body;
+    for (let i = 0; i < businesses.length; i += 1) {
+      if (businesses[i].id === parseInt(req.params.businessid, 10)) {
+        businesses[i].reviews.push({ name, review });
+
+        return res.status(201).json({
+          message: 'Review sucessfully added',
           error: false
         });
       }
