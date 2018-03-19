@@ -2,8 +2,6 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 
 import app from '../../app';
-import businesses from '../models/businesses';
-
 
 chai.use(chaiHttp);
 const { expect } = chai;
@@ -102,6 +100,40 @@ describe('DELETE businesses/', () => {
       .end((err, res) => {
         expect(res)
           .to.have.status(404);
+        done();
+      });
+  });
+});
+describe('POST business reviews/', () => {
+  it('Should successfully add review', (done) => {
+    const reviewMessage = {
+      name: 'charles',
+      review: 'Nice work guys',
+    };
+    chai.request(app)
+      .post('/api/v1/businesses/2/reviews')
+      .send(reviewMessage)
+      .end((err, res) => {
+        expect(res.body.message).equal('Review sucessfully added');
+        expect(res.status).to.equal(201);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('error');
+        done();
+      });
+  });
+  it('should return error for a business that does not exist', (done) => {
+    const review = {
+      name: 'jones',
+      review: 'You can do better',
+    };
+    chai.request(app)
+      .post('/api/v1/businesses/6/reviews')
+      .send(review)
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(404);
         done();
       });
   });
