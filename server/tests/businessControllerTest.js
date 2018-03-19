@@ -104,6 +104,7 @@ describe('DELETE businesses/', () => {
       });
   });
 });
+// test for POST business review
 describe('POST business reviews/', () => {
   it('Should successfully add review', (done) => {
     const reviewMessage = {
@@ -149,15 +150,15 @@ describe('GET business reviews/', () => {
         done();
       });
   });
-
-  it('it should not GET reviews for a business that does not exist', (done) => {
+});
+//  Get all businesses
+describe('GET businesses/', () => {
+  it('should get all businesses', (done) => {
     chai.request(app)
-      .get('/api/v1/businesses/6/reviews')
+      .get('/api/v1/businesses')
       .end((err, res) => {
+        expect(res).to.have.status(200);
         expect(res.body).to.be.a('object');
-        expect(res.body).to.have.property('message');
-        expect(res.body).to.have.property('error');
-        expect(res.status).to.equal(404);
         done();
       });
   });
