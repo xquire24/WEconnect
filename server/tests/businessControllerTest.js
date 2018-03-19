@@ -2,14 +2,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 
 import app from '../../app';
+import businesses from '../models/businesses';
 
-const Business = {
-  name: 'Andel',
-  description: 'a software development company changing the face of africa',
-  category: 'ICT',
-  location: 'lagos',
-  email: 'andelare@andela.com',
-};
 
 chai.use(chaiHttp);
 const { expect } = chai;
@@ -18,7 +12,14 @@ describe('POST businesses/', () => {
   it('should be able to register a business', (done) => {
     chai.request(app)
       .post('/api/v1/businesses')
-      .send(Business)
+      .send({
+        name: 'tradby',
+        image: 'andela.jpg',
+        description: 'a software development company changing the face of africa',
+        category: 'ICT',
+        location: 'lagos',
+        email: 'andela@andela.com',
+      })
       .end((err, res) => {
         expect(res)
           .to.have.status(201);
@@ -60,6 +61,26 @@ describe('POST businesses/', () => {
           .to.have.status(400);
         expect(res.body)
           .to.be.a('object');
+        done();
+      });
+  });
+});
+// test for update business route
+describe('PUT businesses/', () => {
+  it('Should update existing business', (done) => {
+    chai.request(app)
+      .put('/api/v1/businesses/2')
+      .send({
+        name: 'Rottenberg',
+        description: 'Software company',
+        category: 'ICT',
+        location: 'lagos',
+        email: 'guyt@gmail.com'
+      })
+      .end((err, res) => {
+        expect(res.body).to.have.property('message').equal('Updated Successfully');
+        expect(res.status).to.equal(202);
+        expect(res.body).to.be.a('object');
         done();
       });
   });
