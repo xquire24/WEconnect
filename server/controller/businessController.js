@@ -46,5 +46,25 @@ class Business {
       error: true
     });
   }
+  /**
+   * @returns {Object} removeBusiness
+   * @param {*} req
+   * @param {*} res
+   */
+  static removeBusiness(req, res) {
+    for (let i = 0; i < businesses.length; i += 1) {
+      if (businesses[i].id === parseInt(req.params.businessId, 10)) {
+        businesses.splice(businesses[i], 1);
+        return res.json({
+          message: 'Successfully Deleted',
+          error: false
+        });
+      }
+    }
+    return res.status(404).json({
+      message: 'Business not found',
+      error: true
+    });
+  }
 }
 export default Business;
