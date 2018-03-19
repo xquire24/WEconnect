@@ -106,5 +106,15 @@ class Business {
       error: true
     });
   }
+  /**
+   * @returns {Object} getBusinesses
+   * @param {*} req
+   * @param {*} res
+   */
+  static getBusinesses(req, res) {
+    return res.status(200).json({
+      businesses,
+    });
+  }
 }
 export default Business;
