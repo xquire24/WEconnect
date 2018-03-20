@@ -54,7 +54,7 @@ class Business {
   static removeBusiness(req, res) {
     for (let i = 0; i < businesses.length; i += 1) {
       if (businesses[i].id === parseInt(req.params.businessId, 10)) {
-        businesses.splice(businesses[i], 1);
+        businesses.splice(i, 1);
         return res.status(200).json({
           message: 'Successfully Deleted',
           error: false
@@ -124,11 +124,11 @@ class Business {
   static getBusinessesById(req, res) {
     for (let i = 0; i < businesses.length; i += 1) {
       if (businesses[i].id === parseInt(req.params.businessId, 10)) {
-        businesses[i].name = req.body.name;
-        businesses[i].location = req.body.location;
-        businesses[i].category = req.body.category;
+        // businesses[i].name = req.body.name;
+        // businesses[i].location = req.body.location;
+        // businesses[i].category = req.body.category;
         return res.status(200).json({
-          business: businesses[businesses[i].id - 1],
+          business: businesses[i],
           message: 'Successful',
           error: false
         });
