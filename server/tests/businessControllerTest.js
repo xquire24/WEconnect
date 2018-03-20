@@ -153,11 +153,11 @@ describe('POST business reviews/', () => {
       review: 'Nice work guys',
     };
     chai.request(app)
-      .post('/api/v1/businesses/2/reviews')
+      .post('/api/v1/businesses/1/reviews')
       .send(reviewMessage)
       .end((err, res) => {
-        expect(res.body.message).equal('Review sucessfully added');
         expect(res.status).to.equal(201);
+        expect(res.body.message).equal('Review sucessfully added');
         expect(res.body).to.be.a('object');
         expect(res.body).to.have.property('error');
         done();
@@ -169,13 +169,13 @@ describe('POST business reviews/', () => {
       review: 'You can do better',
     };
     chai.request(app)
-      .post('/api/v1/businesses/6/reviews')
+      .post('/api/v1/businesses/2/reviews')
       .send(review)
       .end((err, res) => {
+        expect(res.status).to.equal(404);
         expect(res.body).to.be.a('object');
         expect(res.body).to.have.property('message');
         expect(res.body).to.have.property('error');
-        expect(res.status).to.equal(404);
         done();
       });
   });
