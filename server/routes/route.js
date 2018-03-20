@@ -9,5 +9,6 @@ export default (app) => {
   app.post('/api/v1/businesses/:businessid/reviews', ValidateBusiness.businessReviewValidator, Business.addBusinessReview);
   app.get('/api/v1/businesses/:businessId/reviews', Business.getBusinessReview);
   app.get('/api/v1/businesses', Business.getBusinesses);
+  app.get('/api/v1/businesses/:businessId', Business.getBusinessesById);
 };
 
