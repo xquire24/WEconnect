@@ -63,6 +63,47 @@ describe('POST businesses/', () => {
       });
   });
 });
+
+//  Get all businesses
+describe('GET businesses/', () => {
+  it('should get all businesses', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses')
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.a('object');
+        done();
+      });
+  });
+});
+
+// Get a business
+describe('GET business by id/', () => {
+  it('Should get a business', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses/1')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+});
+
+describe('GET business reviews/', () => {
+  it('it should GET all reviews for a business', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses/1/reviews')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('Reviews');
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+});
+
 // test for update business route
 describe('PUT businesses/', () => {
   it('Should update existing business', (done) => {
@@ -139,27 +180,4 @@ describe('POST business reviews/', () => {
       });
   });
 });
-describe('GET business reviews/', () => {
-  it('it should GET all reviews for a business', (done) => {
-    chai.request(app)
-      .get('/api/v1/businesses/1/reviews')
-      .end((err, res) => {
-        expect(res.body).to.be.a('object');
-        expect(res.body).to.have.property('message');
-        expect(res.status).to.equal(200);
-        done();
-      });
-  });
-});
-//  Get all businesses
-describe('GET businesses/', () => {
-  it('should get all businesses', (done) => {
-    chai.request(app)
-      .get('/api/v1/businesses')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.body).to.be.a('object');
-        done();
-      });
-  });
-});
+
