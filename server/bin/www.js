@@ -1,9 +1,0 @@
-import http from 'http';
-
-import app from '../../app';
-
-const port = parseInt(process.env.PORT, 10) || 9000;
-app.set('port', port);
-
-const server = http.createServer(app);
-server.listen(port);
