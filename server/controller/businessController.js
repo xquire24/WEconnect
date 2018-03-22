@@ -41,7 +41,7 @@ class Business {
         });
       }
     }
-    return res.status(400).json({
+    return res.status(404).json({
       message: 'Business not found',
       error: true
     });
@@ -102,7 +102,7 @@ class Business {
       }
     }
     return res.status(404).json({
-      message: 'No review found',
+      message: 'No business found',
       error: true
     });
   }
@@ -124,9 +124,6 @@ class Business {
   static getBusinessesById(req, res) {
     for (let i = 0; i < businesses.length; i += 1) {
       if (businesses[i].id === parseInt(req.params.businessId, 10)) {
-        // businesses[i].name = req.body.name;
-        // businesses[i].location = req.body.location;
-        // businesses[i].category = req.body.category;
         return res.status(200).json({
           business: businesses[i],
           message: 'Successful',
