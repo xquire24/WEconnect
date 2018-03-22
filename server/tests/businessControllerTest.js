@@ -89,6 +89,14 @@ describe('GET business by id/', () => {
         done();
       });
   });
+  it('Should return 404 if business not found', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses/10')
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
 });
 
 describe('GET business reviews/', () => {
@@ -99,6 +107,14 @@ describe('GET business reviews/', () => {
         expect(res.body).to.be.a('object');
         expect(res.body).to.have.property('Reviews');
         expect(res.status).to.equal(200);
+        done();
+      });
+  });
+  it('it should GET all reviews for a business', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses/10/reviews')
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
         done();
       });
   });
@@ -120,6 +136,21 @@ describe('PUT businesses/', () => {
         expect(res.body).to.have.property('message').equal('Updated Successfully');
         expect(res.status).to.equal(202);
         expect(res.body).to.be.a('object');
+        done();
+      });
+  });
+  it('Should update existing business', (done) => {
+    chai.request(app)
+      .put('/api/v1/businesses/20')
+      .send({
+        name: 'Rottenberg',
+        description: 'Software company',
+        category: 'ICT',
+        location: 'lagos',
+        email: 'guyt@gmail.com'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
         done();
       });
   });
@@ -176,6 +207,52 @@ describe('POST business reviews/', () => {
         expect(res.body).to.be.a('object');
         expect(res.body).to.have.property('message');
         expect(res.body).to.have.property('error');
+        done();
+      });
+  });
+});
+// test for GET business by location or category
+describe('GET Business by location or category', () => {
+  it('it should return an error if location is wrong', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses?location=lago')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
+
+  it('it should GET all business with the specified location', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses?location=lagos')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('it should return an error if category is wrong', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses?category=nom')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
+
+  it('it should GET all business with the specified category', (done) => {
+    chai.request(app)
+      .get('/api/v1/businesses?category=ict')
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.status).to.equal(200);
         done();
       });
   });
