@@ -13,7 +13,7 @@ class User {
   static registerUser(req, res) {
     users.push({
       id: users.length + 1,
-      name: req.body.name,
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
