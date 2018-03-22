@@ -41,4 +41,54 @@ describe('POST user signup/', () => {
         done();
       });
   });
+
+  it('it should not login a user', (done) => {
+    const userDetails = {
+      email: 'xquire24@gmail.com'
+    };
+    chai.request(app)
+      .post('/api/v1/auth/login')
+      .send(userDetails)
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message').eql('Password field is empty');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(400);
+        done();
+      });
+  });
+
+  it('it should not login a user', (done) => {
+    const userDetails = {
+      email: 'feot@gmail.com',
+      password: 'feoy'
+    };
+    chai.request(app)
+      .post('/api/v1/auth/login')
+      .send(userDetails)
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message').eql('Error login in');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(400);
+        done();
+      });
+  });
+
+  it('it should login a user', (done) => {
+    const userDetails = {
+      email: 'xquire24@gmail.com',
+      password: 'omenses'
+    };
+    chai.request(app)
+      .post('/api/v1/auth/login')
+      .send(userDetails)
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message').eql('Login successfull');
+        expect(res.body).to.have.property('error');
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
 });
