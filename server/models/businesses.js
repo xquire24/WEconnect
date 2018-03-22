@@ -23,6 +23,7 @@ const businesses = [
     location: 'lagos',
     email: 'andela@andela.com',
     reviews: []
+    
   }];
 
 export default businesses;
