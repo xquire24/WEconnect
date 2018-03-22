@@ -17,7 +17,7 @@ class User {
       email: req.body.email,
       password: req.body.password,
     });
-    return res.json({
+    return res.status(201).json({
       message: 'Registered Successfully',
       error: false
     });
