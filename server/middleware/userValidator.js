@@ -28,5 +28,24 @@ class ValidateUser {
     }
     next();
   }
+  /**
+   *
+   *
+   * @param {any} req
+   * @param {any} res
+   * @param {any} next
+   * @returns {object} userLogin
+   */
+  static userLogin(req, res, next) {
+    req.check('email', 'Email field is required').isEmpty();
+    req.check('email', 'Email is invalid').isEmail();
+    req.check('password', 'A minimum of 6 characters is required').isLength({ min: 6 });
+
+    const error = req.validationErrors();
+    if (error) {
+      return errorMessage(res, error[0].msg);
+    }
+    next();
+  }
 }
 export default ValidateUser;
