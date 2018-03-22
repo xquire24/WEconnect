@@ -40,7 +40,7 @@ class User {
       }
     });
     res.status(400).json({
-      message: 'Error logining in',
+      message: 'Error login in',
       error: true
     });
   }
