@@ -3,7 +3,7 @@ const users = [
     id: 1,
     name: 'Charles',
     email: 'xquire24@gmail.com',
-    password: 'omens'
+    password: 'omenses'
 
   }];
 export default users;
