@@ -7,6 +7,7 @@ import ValidateUser from '../middleware/userValidator';
 export default (app) => {
   // User API endpoints
   app.post('/api/v1/auth/signup', ValidateUser.userSignup, User.registerUser);
+  app.post('/api/v1/auth/login', ValidateUser.userLogin, User.loginUser);
   // Business API endpoints
   app.post('/api/v1/businesses', ValidateBusiness.registerBusinessValidator, Business.registerBusiness);
   app.put('/api/v1/businesses/:businessId', ValidateBusiness.updateBusinessValidator, Business.updateBusiness);
