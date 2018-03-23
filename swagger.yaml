@@ -191,11 +191,6 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-      - in: "header"
-        name: "x-access-token"
-        description: "Enter your access token"
-        type: "string"
-        required: true
       - name: "businessId"
         in: "path"
         description: "ID of the business that needs to be updated"
@@ -228,11 +223,6 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-      - in: "header"
-        name: "x-access-token"
-        description: "Enter your access token"
-        type: "string"
-        required: true
       - name: "businessId"
         in: "path"
         description: "ID of the business that needs to be deleted"
