@@ -5,5 +5,10 @@
 
 WEconnect is a simple business application that helps business owners connect to thier potential customers around the globe. When individual businesses are registered, the customers can view details about the goods, photos and also write reviews about a particular business
 
+# Getting Started
+
+To get started, download the app from this Repo or fork it by using the command 
+git clone https://github.com/xquire24/WEconnect.git
+
 *The application is still under development and README will be updated once it's completed*
 
