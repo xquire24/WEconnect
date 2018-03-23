@@ -328,13 +328,13 @@ definitions:
     properties:
       name:
         type: "string"
-      email:
-        type: "string"
-      address:
+      description:
         type: "string"
       location:
         type: "string"
       category:
+        type: "string"
+      email:
         type: "string"
     xml:
       name: "createBusiness"
