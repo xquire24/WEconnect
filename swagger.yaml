@@ -346,9 +346,9 @@ definitions:
   postReview:
     type: "object"
     properties:
-      reviewer:
+      name:
         type: "string"
-      message:
+      review:
         type: "string"
     xml:
       name: "postReview"
