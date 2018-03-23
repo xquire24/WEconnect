@@ -10,5 +10,10 @@ WEconnect is a simple business application that helps business owners connect to
 To get started, download the app from this Repo or fork it by using the command 
 git clone https://github.com/xquire24/WEconnect.git
 
+# Prerequisites
+
+Node.JS software is needed before this app can be installed
+It can be downloaded from https://nodejs.org
+
 *The application is still under development and README will be updated once it's completed*
 
