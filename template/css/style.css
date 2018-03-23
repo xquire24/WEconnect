@@ -1,3 +1,6 @@
+.nav-wrapper .brand-logo{
+	padding-left: 30px;
+}
 .info .col
 {
 	margin-bottom: 24px;
@@ -39,10 +42,18 @@
 .info .info-image img
 {
 	display: block;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 20px;
     margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
+}
+
+
+.info .info-display img
+{
+	width: 35%;
+	display: inline-block;
+	float: right;
 }
 
 .intro
@@ -99,12 +110,7 @@
 	text-align: center;
 }
 
-.portfolio img
-{
-	width: 33%;
-	display: inline-block;
-	float: left;
-}
+
 
 .article h5
 {
@@ -124,7 +130,7 @@
 footer
 {
 	background-color: #333333;
-	padding-top: 40px;
+	padding-top: 20px;
 	color: #f5f5f5;
 	
 }
