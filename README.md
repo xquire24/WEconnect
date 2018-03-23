@@ -19,9 +19,10 @@ It can be downloaded from https://nodejs.org
 
 After the app has been downloaded, install it by running
 ```
-npm install
+$ npm install
 
 ```
+This will install the app along with the neccessary dependencies
 
 
 *The application is still under development and README will be updated once it's completed*
