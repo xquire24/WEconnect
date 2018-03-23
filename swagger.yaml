@@ -22,7 +22,7 @@ tags:
 - name: "Reviews"
   description: "Access to all review methods"
 schemes:
-- "http"
+- "https"
 paths:
   /auth/signup:
     post:
