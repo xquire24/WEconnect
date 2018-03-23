@@ -8,11 +8,11 @@ info:
   title: "WeConnect API"
   termsOfService: "http://swagger.io/terms/"
   contact:
-    email: "simeonsamson4@gmail.com"
+    email: "xquire24@gmail.com"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:4000"
+host: "we-connect--api.herokuapp.com"
 basePath: "/api/v1"
 tags:
 - name: "User"
