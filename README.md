@@ -15,5 +15,14 @@ git clone https://github.com/xquire24/WEconnect.git
 Node.JS software is needed before this app can be installed
 It can be downloaded from https://nodejs.org
 
+# Installing
+
+After the app has been downloaded, install it by running
+```
+npm install
+
+```
+
+
 *The application is still under development and README will be updated once it's completed*
 
